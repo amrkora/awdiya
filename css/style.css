@@ -2048,10 +2048,18 @@ html[dir="rtl"] .back-to-top {
   html[dir="rtl"] .nav-menu {
     right: auto;
     left: -100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    transition: left 0.35s ease;
   }
 
   html[dir="rtl"] .nav-menu.open {
     left: 0;
+  }
+
+  html[dir="rtl"] .nav-toggle {
+    order: -1;
   }
 
   html[dir="rtl"] .feature-item {
@@ -2138,12 +2146,13 @@ html[dir="rtl"] .back-to-top {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 100%;
     height: 100vh;
     height: 100dvh;
     background: var(--color-surface);
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    text-align: center;
     padding: 80px 28px 28px;
     gap: 4px;
     box-shadow: var(--shadow-lg);
