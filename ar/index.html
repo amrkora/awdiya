@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أوديَة — حيث تنبت الأفكار</title>
+  <meta name="description" content="أوديَة تصنع البرمجيات بعناية بشرية وأدوات ذكية — تطوير مخصص، خدمات سحابية، وأنظمة ذكية — متجذّرة في الفهم الحقيقي.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="alternate" hreflang="en" href="https://awdiya.com/">
+  <link rel="alternate" hreflang="ar" href="https://awdiya.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://awdiya.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="أوديَة — حيث تنبت الأفكار">
+  <meta property="og:description" content="برمجيات مصنوعة بعناية بشرية وأدوات ذكية. متجذّرة في الفهم، مبنية لتنمو.">
+  <meta property="og:url" content="https://awdiya.com/ar/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="أوديَة — حيث تنبت الأفكار">
+  <meta name="twitter:description" content="برمجيات مصنوعة بعناية بشرية وأدوات ذكية. متجذّرة في الفهم، مبنية لتنمو.">
+  <link rel="canonical" href="https://awdiya.com/ar/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Awdiya",
+    "url": "https://awdiya.com",
+    "logo": "https://awdiya.com/favicon.svg",
+    "description": "برمجيات مصنوعة بعناية بشرية وأدوات ذكية. تطوير مخصص، خدمات سحابية، وتحول رقمي.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@awdiya.com",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "كم يستغرق المشروع النموذجي؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "يعتمد على النطاق. تطبيق ويب بسيط يستغرق 4-8 أسابيع، بينما المنصات المعقدة قد تستغرق 3-6 أشهر. سنعطيك جدولاً زمنياً واضحاً بعد مرحلة الاكتشاف."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "كم تكلفة المشروع؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "كل مشروع مختلف. نقدم استشارات مجانية لفهم احتياجاتك وتقديم عرض سعر شفاف — بدون رسوم خفية أو مفاجآت."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل تقدمون دعماً مستمراً بعد الإطلاق؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "نعم. نقدم باقات صيانة تشمل إصلاح الأخطاء ومراقبة الأداء وتحديثات الأمان وتحسينات الميزات."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يمكنكم العمل مع التقنيات الموجودة لدينا؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "بالتأكيد. نحن مرنون ويمكننا التكامل مع أنظمتك الحالية وواجهات البرمجة والبنية التحتية — أو نوصي بترقيات عند الحاجة."
+        }
+      }
+    ]
+  }
+  </script>
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+  <noscript><style>.loader{display:none}</style></noscript>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <svg class="loader-logo" viewBox="0 0 40 40" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 14 Q12 8, 20 20 Q28 32, 36 26" stroke="var(--blue-500)" stroke-width="2.5" stroke-linecap="round" fill="none" class="loader-path"/>
+      <path d="M4 22 Q12 16, 20 28 Q28 36, 36 32" stroke="var(--blue-400)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4" class="loader-path"/>
+    </svg>
+    <span class="loader-text">أوديَة</span>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 14 Q12 8, 20 20 Q28 32, 36 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M4 22 Q12 16, 20 28 Q28 36, 36 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
+        </svg>
+        <span>أوديَة</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="تبديل القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+        <li><a href="#about" class="nav-link">من نحن</a></li>
+        <li><a href="#solutions" class="nav-link">الحلول</a></li>
+        <li><a href="#projects" class="nav-link">المشاريع</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">تواصل معنا</a></li>
+        <li>
+          <button class="theme-toggle" aria-label="تبديل الوضع الداكن">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+        <li><a href="../index.html" class="lang-toggle">EN</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-particles"></div>
+      <div class="hero-content container">
+        <h1 class="hero-title"><span class="text-reveal">حِرفة الأيدي البشرية</span> <br><span class="text-reveal">مُعزَّزة بالذكاء الاصطناعي</span></h1>
+        <p class="hero-subtitle">كالوديان التي تحوّل الأنهار إلى قوة — نحن نشكّل التقنية بعناية بشرية وأدوات ذكية لنبني برمجيات تنمو أعمالك عليها حقاً.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">ابدأ الآن</a>
+          <a href="#solutions" class="btn btn-outline btn-lg">حلولنا</a>
+        </div>
+      </div>
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--color-bg)"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">من نحن</span>
+          <h2 class="section-title">الأرض الخصبة<br>حيث تنبت الأفكار</h2>
+          <p class="section-desc">أوديَة تعني "الوديان" — أخصب بقاع الأرض. نؤمن بأن البرمجيات العظيمة تنمو بنفس الطريقة: من فهمٍ عميق لعالمك، تغذّيها أيادٍ بشرية، وتضاعف أثرها أدوات ذكية تأخذها أبعد مما كان ممكناً.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h3>جذور عميقة</h3>
+            <p>نبدأ بفهم عالمك حقاً — مستخدميك، تحدياتك، رؤيتك. كالجذور التي تستمد قوتها من الأرض، هذا الفهم يغذّي كل ما نبنيه.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h3>صنعة بشرية</h3>
+            <p>التقنية أداتنا وليست روحنا. كل قرار يصنعه أشخاص يهتمون — بالجودة، بالوضوح، وببناء شيء تفخر أن تسمّيه ملكك.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>ميزة ذكية</h3>
+            <p>نسخّر أدوات ذكية للتحرك أسرع، والاختبار أذكى، والتسليم بمستوى لم يكن ممكناً من قبل — فتحصل أعمالك على ميزة الغد اليوم.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions section" id="solutions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ماذا نقدم</span>
+          <h2 class="section-title">حلول تنمو<br>مع طموحك</h2>
+          <p class="section-desc">من المنصات المخصصة إلى الأنظمة الذكية، نبني برمجيات تتلاءم مع أعمالك وكأنها صُنعت لتكون هناك دائماً.</p>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card">
+            <div class="solution-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>تطوير برمجيات مخصصة</h3>
+            <p>تطبيقات مصممة من الصفر لتناسب سير عملك بدقة وتتوسع مع نمو أعمالك.</p>
+            <a href="#contact" class="solution-link">احصل على عرض <i class="fas fa-arrow-left"></i></a>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3>التكامل السحابي</h3>
+            <p>هجرة سلسة وبنية سحابية تجعل بنيتك التحتية مرنة ومتينة وفعّالة من حيث التكلفة.</p>
+            <a href="#contact" class="solution-link">احصل على عرض <i class="fas fa-arrow-left"></i></a>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>أنظمة ذكية</h3>
+            <p>من الرؤى التنبؤية إلى الأتمتة الذكية — ننسج الذكاء في منتجاتك لتتعلم وتتكيف وتعمل بجدٍّ أكبر من أجلك.</p>
+            <a href="#contact" class="solution-link">احصل على عرض <i class="fas fa-arrow-left"></i></a>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon">
+              <i class="fas fa-mobile-screen-button"></i>
+            </div>
+            <h3>خدمات تطبيقات الجوال</h3>
+            <p>تجارب جوال متعددة المنصات تسعد المستخدمين — من الفكرة والتصميم إلى التطوير والإطلاق.</p>
+            <a href="#contact" class="solution-link">احصل على عرض <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">عمل مميز</span>
+          <h2 class="section-title">مشروع مميز</h2>
+          <p class="section-desc">حل حقيقي صنعناه — من الفكرة إلى الإطلاق.</p>
+        </div>
+        <div class="project-showcase">
+          <div class="project-card">
+            <div class="project-badge">مباشر</div>
+            <div class="project-icon">
+              <i class="fas fa-apple-whole"></i>
+            </div>
+            <h3>Kalory Help</h3>
+            <p>تطبيق مجاني لتتبع التغذية يحافظ على خصوصيتك ويعمل بالكامل على جهازك. تتبّع الوجبات واستهلاك الماء والوزن — بدون حسابات، بدون إنترنت، بدون جمع بيانات. متوفر كتطبيق ويب مع إصدار iOS قريباً.</p>
+            <ul class="project-tags">
+              <li>Flutter</li>
+              <li>يعمل بدون إنترنت</li>
+              <li>الخصوصية</li>
+              <li>PWA</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://kalory.help" class="btn btn-primary" target="_blank" rel="noopener">زيارة الموقع <i class="fas fa-arrow-up-right-from-square"></i></a>
+              <a href="https://kalory.help/app/" class="btn btn-outline-dark" target="_blank" rel="noopener">جرّب التطبيق <i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features / Benefits Section -->
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">لماذا أوديَة</span>
+          <h2 class="section-title">مبنية للأداء،<br>مصممة للناس</h2>
+          <p class="section-desc">كل حل نبنيه يرتكز على مبادئ تضمن قيمة دائمة لأعمالك.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-expand"></i></div>
+            <div class="feature-text">
+              <h3>قابلية التوسع</h3>
+              <p>بنيات تنمو معك — من النموذج الأولي إلى أنظمة جاهزة للإنتاج مصممة لتحمّل الطلب الحقيقي.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-lock"></i></div>
+            <div class="feature-text">
+              <h3>الأمان أولاً</h3>
+              <p>مصادقة آمنة، حماية بيانات، وأفضل ممارسات الأمان مدمجة في كل مشروع.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-gauge-high"></i></div>
+            <div class="feature-text">
+              <h3>أداء عالي</h3>
+              <p>كود محسّن وبنيات خفيفة توفر أوقات تحميل فائقة السرعة وتجارب مستخدم سلسة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-text">
+              <h3>تصميم يركز على المستخدم</h3>
+              <p>واجهات بديهية مصنوعة من خلال البحث والاختبار — لأن البرمجيات الرائعة يجب أن تكون سهلة الاستخدام.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-arrows-rotate"></i></div>
+            <div class="feature-text">
+              <h3>تسليم مرن</h3>
+              <p>تطوير تكراري مع متابعة مستمرة، حتى ترى التقدم مبكراً وتوجه المسار في كل خطوة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            <div class="feature-text">
+              <h3>دعم مخصص</h3>
+              <p>صيانة بعد الإطلاق ومراقبة استباقية للحفاظ على سلاسة عمل أنظمتك.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">كيف نعمل</span>
+          <h2 class="section-title">من الفكرة إلى الإطلاق<br>في أربع خطوات</h2>
+          <p class="section-desc">عملية واضحة وتعاونية تبقيك مشاركاً في كل مرحلة.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <div class="process-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <h3>الاكتشاف</h3>
+            <p>نستمع ونبحث ونرسم خريطة احتياجات عملك لتحديد نطاق المشروع وخارطة الطريق.</p>
+          </div>
+          <div class="process-connector"><i class="fas fa-chevron-left"></i></div>
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <div class="process-icon"><i class="fas fa-pencil-ruler"></i></div>
+            <h3>التصميم</h3>
+            <p>نماذج أولية وتصاميم واجهات مصنوعة حول مستخدميك — يتم مراجعتها وتحسينها بملاحظاتك.</p>
+          </div>
+          <div class="process-connector"><i class="fas fa-chevron-left"></i></div>
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <div class="process-icon"><i class="fas fa-code"></i></div>
+            <h3>التطوير</h3>
+            <p>سباقات تطوير مرنة مع عروض منتظمة. كود نظيف ومُختبر مبني على أحدث الأطر والممارسات.</p>
+          </div>
+          <div class="process-connector"><i class="fas fa-chevron-left"></i></div>
+          <div class="process-step">
+            <div class="process-number">4</div>
+            <div class="process-icon"><i class="fas fa-rocket"></i></div>
+            <h3>الإطلاق</h3>
+            <p>إطلاق مع مراقبة وتوثيق ودعم مستمر لضمان النجاح على المدى الطويل.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">أسئلة شائعة</span>
+          <h2 class="section-title">أسئلة؟ لدينا الإجابات</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a1">
+              كم يستغرق المشروع النموذجي؟
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer" id="faq-a1">
+              <p>يعتمد على النطاق. تطبيق ويب بسيط يستغرق 4-8 أسابيع، بينما المنصات المعقدة قد تستغرق 3-6 أشهر. سنعطيك جدولاً زمنياً واضحاً بعد مرحلة الاكتشاف.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a2">
+              كم تكلفة المشروع؟
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer" id="faq-a2">
+              <p>كل مشروع مختلف. نقدم استشارات مجانية لفهم احتياجاتك وتقديم عرض سعر شفاف — بدون رسوم خفية أو مفاجآت.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a3">
+              هل تقدمون دعماً مستمراً بعد الإطلاق؟
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer" id="faq-a3">
+              <p>نعم. نقدم باقات صيانة تشمل إصلاح الأخطاء ومراقبة الأداء وتحديثات الأمان وتحسينات الميزات.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a4">
+              هل يمكنكم العمل مع التقنيات الموجودة لدينا؟
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="faq-answer" id="faq-a4">
+              <p>بالتأكيد. نحن مرنون ويمكننا التكامل مع أنظمتك الحالية وواجهات البرمجة والبنية التحتية — أو نوصي بترقيات عند الحاجة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">تواصل معنا</span>
+          <h2 class="section-title">كل شيء عظيم<br>يبدأ بحوار</h2>
+          <p class="section-desc">أخبرنا عن رؤيتك. سنستمع أولاً — ثم نريك كيف يمكننا إحيائها بعناية ووضوح والأدوات المناسبة.</p>
+        </div>
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">الاسم الكامل</label>
+              <input type="text" id="name" name="name" placeholder="اسمك" required>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" placeholder="name@company.com" dir="ltr" required>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">الرسالة</label>
+              <textarea id="message" name="message" rows="5" placeholder="أخبرنا عن مشروعك..." required></textarea>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">
+              <span>إرسال الرسالة</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-success" id="formSuccess" hidden>
+              <i class="fas fa-check-circle"></i>
+              <p>شكراً لك! سنعود إليك قريباً.</p>
+            </div>
+          </form>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>البريد الإلكتروني</h4>
+                <p><a href="mailto:hello@awdiya.com">hello@awdiya.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-content">
+          <h2>حلمك أقرب مما تتخيل… فقط ابدأ؟</h2>
+          <p>أفضل المنتجات الرقمية تبدأ بحوار حقيقي. لنتحدث عمّا تبنيه — استشارة مجانية، دون أي التزام.</p>
+          <a href="#contact" class="btn btn-primary btn-lg">احصل على استشارة مجانية <i class="fas fa-arrow-left"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-content">
+      <p>نستخدم التخزين المحلي لتذكّر تفضيلاتك. بالاستمرار في زيارة هذا الموقع فإنك توافق على <a href="#" data-modal="privacyModal">سياسة الخصوصية</a>.</p>
+      <div class="cookie-actions">
+        <button class="btn btn-primary btn-sm" id="cookieAccept">قبول</button>
+        <button class="btn btn-ghost btn-sm" id="cookieDecline">رفض</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 14 Q12 8, 20 20 Q28 32, 36 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M4 22 Q12 16, 20 28 Q28 36, 36 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
+            </svg>
+            <span>أوديَة</span>
+          </a>
+          <p>برمجيات متجذّرة في الفهم، مصنوعة بأيادٍ بشرية، ومبنية لتنمو معك.</p>
+        </div>
+        <div class="footer-col">
+          <h4>التنقل</h4>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#solutions">الحلول</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>الحلول</h4>
+          <ul>
+            <li><a href="#solutions">تطوير مخصص</a></li>
+            <li><a href="#solutions">التكامل السحابي</a></li>
+            <li><a href="#solutions">أنظمة ذكية</a></li>
+            <li><a href="#solutions">تطبيقات الجوال</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 أوديَة. جميع الحقوق محفوظة.</p>
+        <div class="footer-legal">
+          <a href="#" data-modal="privacyModal">سياسة الخصوصية</a>
+          <a href="#" data-modal="termsModal">شروط الخدمة</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Privacy Modal -->
+  <div class="legal-modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" aria-hidden="true">
+    <div class="legal-modal">
+      <div class="legal-modal-header">
+        <h2 id="privacyTitle">سياسة الخصوصية</h2>
+        <button class="legal-modal-close" aria-label="إغلاق">&times;</button>
+      </div>
+      <div class="legal-content">
+        <p class="legal-date">آخر تحديث: فبراير 2026</p>
+        <h3>1. مقدمة</h3>
+        <p>أوديَة ("نحن"، "لنا") تحترم خصوصيتك. توضح سياسة الخصوصية هذه كيف نجمع المعلومات ونستخدمها ونحميها عند زيارتك لموقعنا awdiya.com أو استخدام خدماتنا. نلتزم بحماية بياناتك الشخصية وفقاً للائحة العامة لحماية البيانات في المملكة المتحدة (UK GDPR) وقانون حماية البيانات 2018.</p>
+        <h3>2. مراقب البيانات</h3>
+        <p>أوديَة هي مراقب البيانات المسؤول عن بياناتك الشخصية. لأي استفسارات تتعلق بحماية البيانات، تواصل معنا على <a href="mailto:hello@awdiya.com">hello@awdiya.com</a>.</p>
+        <h3>3. المعلومات التي نجمعها</h3>
+        <p><strong>بيانات نموذج التواصل:</strong> عند إرسال نموذج التواصل، نجمع اسمك وبريدك الإلكتروني ورسالتك. تُستخدم هذه البيانات فقط للرد على استفسارك.</p>
+        <p><strong>التخزين المحلي:</strong> نستخدم التخزين المحلي لتذكر تفضيل المظهر (الوضع الفاتح/الداكن) وخيار الموافقة. تُخزّن محلياً في متصفحك ولا تُرسل لأي خادم.</p>
+        <p><strong>التحليلات:</strong> قد نستخدم تحليلات صديقة للخصوصية لفهم كيفية استخدام الزوار لموقعنا. لا يتم جمع أي معلومات تعريف شخصية عبر التحليلات.</p>
+        <h3>4. الأساس القانوني للمعالجة</h3>
+        <p>نعالج بياناتك الشخصية على الأسس القانونية التالية بموجب UK GDPR:</p>
+        <ul>
+          <li><strong>المصلحة المشروعة</strong> (المادة 6(1)(f)) — للرد على الاستفسارات المقدمة عبر نموذج التواصل ولتحسين موقعنا.</li>
+          <li><strong>الموافقة</strong> (المادة 6(1)(a)) — عندما تمنح موافقتك على معالجة محددة، مثل التحليلات الاختيارية.</li>
+          <li><strong>الالتزام القانوني</strong> (المادة 6(1)(c)) — عندما يُطلب منّا معالجة البيانات للامتثال لالتزام قانوني.</li>
+        </ul>
+        <h3>5. كيف نستخدم معلوماتك</h3>
+        <ul>
+          <li>للرد على استفساراتك وتقديم خدماتنا</li>
+          <li>لتحسين موقعنا وتجربة المستخدم</li>
+          <li>للامتثال للالتزامات القانونية</li>
+        </ul>
+        <h3>6. خدمات الطرف الثالث</h3>
+        <p>يحمّل موقعنا موارد من مزودي خدمات خارجيين. عندما يطلب متصفحك هذه الموارد، قد يتم نقل عنوان IP الخاص بك ومعلومات المتصفح إلى خوادمهم:</p>
+        <ul>
+          <li><strong>Google Fonts</strong> (fonts.googleapis.com، fonts.gstatic.com) — تُستخدم لتقديم خطوط الويب. تنطبق سياسة خصوصية Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+          <li><strong>Cloudflare CDN</strong> (cdnjs.cloudflare.com) — تُستخدم لتقديم مكتبات الأيقونات. تنطبق سياسة خصوصية Cloudflare: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a>.</li>
+        </ul>
+        <h3>7. مشاركة البيانات</h3>
+        <p>لا نبيع أو نؤجر أو نشارك معلوماتك الشخصية مع أطراف ثالثة، إلا كما هو موضح في القسم 6 أعلاه، أو بموجب القانون، أو لحماية حقوقنا القانونية.</p>
+        <h3>8. الاحتفاظ بالبيانات</h3>
+        <p>يتم الاحتفاظ ببيانات نموذج التواصل فقط للمدة اللازمة للرد على استفسارك وأي متابعات. لا نحتفظ بالبيانات الشخصية لفترة أطول مما هو ضروري للأغراض التي جُمعت من أجلها.</p>
+        <h3>9. أمان البيانات</h3>
+        <p>ننفّذ إجراءات تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرح به أو التعديل أو التدمير.</p>
+        <h3>10. حقوقك</h3>
+        <p>بموجب UK GDPR، لديك الحق في:</p>
+        <ul>
+          <li>الوصول إلى بياناتك الشخصية</li>
+          <li>تصحيح البيانات الشخصية غير الدقيقة</li>
+          <li>طلب حذف بياناتك الشخصية</li>
+          <li>تقييد أو الاعتراض على معالجة بياناتك الشخصية</li>
+          <li>نقل البيانات</li>
+          <li>سحب الموافقة في أي وقت، عندما تكون المعالجة مبنية على الموافقة</li>
+        </ul>
+        <p>لممارسة أي من هذه الحقوق، تواصل معنا على <a href="mailto:hello@awdiya.com">hello@awdiya.com</a>.</p>
+        <p>لديك أيضاً الحق في تقديم شكوى إلى مكتب مفوض المعلومات (ICO) إذا كنت تعتقد أن حقوقك في حماية البيانات قد انتُهكت: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a>.</p>
+        <h3>11. النقل الدولي</h3>
+        <p>قد تنقل بعض خدمات الطرف الثالث المذكورة في القسم 6 البيانات خارج المملكة المتحدة. عند حدوث ذلك، نعتمد على امتثال مزودي الخدمة للضمانات الكافية كما يتطلب قانون حماية البيانات في المملكة المتحدة.</p>
+        <h3>12. روابط الطرف الثالث</h3>
+        <p>قد يحتوي موقعنا على روابط لمواقع خارجية. نحن غير مسؤولين عن ممارسات الخصوصية لتلك المواقع.</p>
+        <h3>13. التغييرات على هذه السياسة</h3>
+        <p>قد نحدّث سياسة الخصوصية هذه من وقت لآخر. ستُنشر التغييرات في هذه الصفحة مع تاريخ مراجعة محدّث.</p>
+        <h3>14. تواصل معنا</h3>
+        <p>إذا كانت لديك أسئلة حول سياسة الخصوصية، تواصل معنا على <a href="mailto:hello@awdiya.com">hello@awdiya.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div class="legal-modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" aria-hidden="true">
+    <div class="legal-modal">
+      <div class="legal-modal-header">
+        <h2 id="termsTitle">شروط الخدمة</h2>
+        <button class="legal-modal-close" aria-label="إغلاق">&times;</button>
+      </div>
+      <div class="legal-content">
+        <p class="legal-date">آخر تحديث: فبراير 2026</p>
+        <h3>1. قبول الشروط</h3>
+        <p>بالوصول إلى موقع أوديَة (awdiya.com) أو استخدام خدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه. إذا لم توافق، يُرجى عدم استخدام موقعنا أو خدماتنا.</p>
+        <h3>2. الخدمات</h3>
+        <p>تقدم أوديَة خدمات تطوير البرمجيات المخصصة والتكامل السحابي والأنظمة الذكية وخدمات تطبيقات الجوال. تُحدد الشروط الخاصة بالمشاريع الفردية في اتفاقيات منفصلة بين أوديَة والعميل.</p>
+        <h3>3. الملكية الفكرية</h3>
+        <p>جميع المحتوى على هذا الموقع — بما في ذلك النصوص والرسومات والشعارات والأكواد — هو ملك لأوديَة ما لم يُذكر خلاف ذلك. لا يجوز لك إعادة إنتاج أو توزيع أو تعديل أي محتوى دون إذن كتابي منّا.</p>
+        <p>بالنسبة لمشاريع العملاء، تُحدد ملكية الحقوق الفكرية في اتفاقية المشروع. ما لم يُحدد خلاف ذلك، يحصل العملاء على الملكية الكاملة للتسليمات عند الدفع النهائي.</p>
+        <h3>4. سلوك المستخدم</h3>
+        <p>أنت توافق على عدم:</p>
+        <ul>
+          <li>استخدام موقعنا لأي غرض غير قانوني</li>
+          <li>محاولة الوصول غير المصرح به لأنظمتنا</li>
+          <li>تقديم معلومات كاذبة أو مضللة عبر نماذج التواصل</li>
+          <li>التدخل في الأداء السليم لموقعنا</li>
+        </ul>
+        <h3>5. حدود المسؤولية</h3>
+        <p>تقدم أوديَة هذا الموقع "كما هو" دون ضمانات من أي نوع. لسنا مسؤولين عن أي أضرار ناتجة عن استخدام موقعنا أو خدماتنا، إلا بموجب القانون المعمول به.</p>
+        <h3>6. اتفاقيات المشاريع</h3>
+        <p>تخضع جميع مشاريع تطوير البرمجيات لاتفاقيات مشاريع منفصلة تحدد النطاق والجدول الزمني والتسليمات وشروط الدفع والضمانات. تُطبق شروط الخدمة هذه بالإضافة إلى أي اتفاقيات خاصة بالمشروع.</p>
+        <h3>7. شروط الدفع</h3>
+        <p>تُحدد شروط الدفع مقابل الخدمات في عروض المشاريع الفردية. قد تترتب رسوم إضافية على التأخر في الدفع كما هو موضح في اتفاقية المشروع.</p>
+        <h3>8. الخصوصية وحماية البيانات</h3>
+        <p>يخضع استخدامك لموقعنا وخدماتنا أيضاً لسياسة الخصوصية الخاصة بنا، التي توضح كيف نجمع بياناتك الشخصية ونستخدمها ونحميها وفقاً للائحة العامة لحماية البيانات في المملكة المتحدة (UK GDPR) وقانون حماية البيانات 2018. باستخدامك لموقعنا، فإنك تقرّ بأنك قرأت وفهمت سياسة الخصوصية الخاصة بنا.</p>
+        <h3>9. الإنهاء</h3>
+        <p>نحتفظ بالحق في إنهاء الوصول إلى موقعنا لأي مستخدم ينتهك هذه الشروط. تخضع شروط إنهاء المشاريع لاتفاقيات المشاريع الفردية.</p>
+        <h3>10. القانون الحاكم</h3>
+        <p>تخضع شروط الخدمة هذه لقوانين إنجلترا وويلز. تُحل أي نزاعات عبر التفاوض بحسن نية أو، إذا لزم الأمر، من خلال محاكم إنجلترا وويلز.</p>
+        <h3>11. التغييرات على هذه الشروط</h3>
+        <p>قد نحدّث شروط الخدمة هذه من وقت لآخر. يُعتبر الاستمرار في استخدام موقعنا بعد التغييرات قبولاً للشروط المعدّلة.</p>
+        <h3>12. تواصل معنا</h3>
+        <p>للأسئلة حول شروط الخدمة، تواصل معنا على <a href="mailto:hello@awdiya.com">hello@awdiya.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

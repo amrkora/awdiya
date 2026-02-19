@@ -5,40 +5,104 @@
 (function () {
   'use strict';
 
+  // ── Theme toggle (#3 fix: inverted logic) ──
+  var themeBtn = document.querySelector('.theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var html = document.documentElement;
+      var current = html.getAttribute('data-theme');
+      var next;
+
+      if (current === 'dark') {
+        next = 'light';
+      } else if (current === 'light') {
+        next = 'dark';
+      } else {
+        // No explicit theme — toggle opposite of system preference
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        next = systemDark ? 'light' : 'dark';
+      }
+
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      var arLabel = next === 'dark' ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن';
+      var enLabel = next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      themeBtn.setAttribute('aria-label', document.documentElement.lang === 'ar' ? arLabel : enLabel);
+    });
+  }
+
   // ── Smooth scrolling ──
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
-      var target = document.querySelector(this.getAttribute('href'));
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
       closeMenu();
       target.scrollIntoView({ behavior: 'smooth' });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
     });
   });
 
-  // ── Mobile navigation ──
+  // ── Mobile navigation (#4 fix: null checks) ──
   var navToggle = document.getElementById('navToggle');
   var navMenu = document.getElementById('navMenu');
 
   function closeMenu() {
+    if (!navToggle || !navMenu) return;
     navToggle.classList.remove('open');
     navMenu.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }
 
-  navToggle.addEventListener('click', function () {
-    var isOpen = navToggle.classList.toggle('open');
-    navMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navToggle.classList.toggle('open');
+      navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) {
+        var firstLink = navMenu.querySelector('.nav-link');
+        if (firstLink) firstLink.focus();
+      }
+    });
 
-  document.addEventListener('click', function (e) {
-    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-      closeMenu();
+    document.addEventListener('click', function (e) {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMenu();
+        navToggle.focus();
+      }
+    });
+  }
+
+  // ── Scroll throttle helper (#7 fix) ──
+  var ticking = false;
+  function onScrollThrottled() {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        onScroll();
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
+  }
 
-  // ── Header scroll + scroll progress bar ──
+  // ── Parallax hero background (#7 fix: merged into throttled scroll) ──
+  var heroBg = document.querySelector('.hero-bg');
+  var particles = document.querySelector('.hero-particles');
+  var mobileQuery = window.matchMedia('(max-width: 768px)');
+  var isMobile = mobileQuery.matches;
+  mobileQuery.addEventListener('change', function (e) { isMobile = e.matches; });
+
+  // ── Header scroll + scroll progress bar (#4 fix: null checks) ──
   var header = document.getElementById('header');
   var backToTop = document.getElementById('backToTop');
   var progressBar = document.getElementById('scrollProgress');
@@ -46,19 +110,25 @@
   function onScroll() {
     var scrollY = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    header.classList.toggle('scrolled', scrollY > 50);
-    backToTop.classList.toggle('visible', scrollY > 600);
+    if (header) header.classList.toggle('scrolled', scrollY > 50);
+    if (backToTop) backToTop.classList.toggle('visible', scrollY > 600);
     if (progressBar && docHeight > 0) {
       progressBar.style.width = (scrollY / docHeight * 100) + '%';
     }
+    if (!isMobile && heroBg && scrollY < window.innerHeight) {
+      heroBg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px) scale(1.05)';
+      if (particles) particles.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
+    }
   }
 
-  window.addEventListener('scroll', onScroll);
+  window.addEventListener('scroll', onScrollThrottled);
 
-  // ── Back to top ──
-  backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  // ── Back to top (#4 fix: null check) ──
+  if (backToTop) {
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // ── Active nav link on scroll ──
   var sections = document.querySelectorAll('section[id]');
@@ -81,27 +151,18 @@
     });
   }
 
-  window.addEventListener('scroll', updateActiveNav);
-
-  // ── Hero entrance animation ──
+  // ── Loader ──
+  var loader = document.getElementById('loader');
   window.addEventListener('load', function () {
     document.body.classList.add('loaded');
+    if (loader) {
+      setTimeout(function () {
+        loader.classList.add('hidden');
+        loader.addEventListener('transitionend', function () { loader.remove(); }, { once: true });
+      }, 300);
+    }
   });
 
-  // ── Parallax hero background ──
-  var heroBg = document.querySelector('.hero-bg');
-  var particles = document.querySelector('.hero-particles');
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-  if (!isMobile && heroBg) {
-    window.addEventListener('scroll', function () {
-      var scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        heroBg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px) scale(1.05)';
-        if (particles) particles.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-      }
-    });
-  }
 
   // ── Floating particles in hero ──
   var particleContainer = document.querySelector('.hero-particles');
@@ -119,16 +180,7 @@
     }
   }
 
-  // ── Mouse glow on hero ──
-  var heroGlow = document.querySelector('.hero-glow');
-  var hero = document.querySelector('.hero');
-  if (heroGlow && hero && !isMobile) {
-    hero.addEventListener('mousemove', function (e) {
-      var rect = hero.getBoundingClientRect();
-      heroGlow.style.left = (e.clientX - rect.left) + 'px';
-      heroGlow.style.top = (e.clientY - rect.top) + 'px';
-    });
-  }
+
 
   // ── Card tilt on hover ──
   document.querySelectorAll('.solution-card, .about-card').forEach(function (card) {
@@ -172,7 +224,7 @@
   }
 
   // ── Scroll reveal animations ──
-  var reveals = document.querySelectorAll('.section-header, .about-card, .solution-card, .feature-item, .contact-form, .contact-info');
+  var reveals = document.querySelectorAll('.section-header, .about-card, .solution-card, .project-card, .feature-item, .process-step, .tech-item, .faq-item, .contact-form, .contact-info, .cta-content');
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -198,7 +250,53 @@
     });
   });
 
-  // ── Contact form validation ──
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Cookie consent ──
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+  var cookieDecline = document.getElementById('cookieDecline');
+
+  if (cookieBanner) {
+    try {
+      if (!localStorage.getItem('cookie-consent')) {
+        cookieBanner.hidden = false;
+      }
+    } catch (e) {
+      cookieBanner.hidden = false;
+    }
+
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', function () {
+        try { localStorage.setItem('cookie-consent', 'accepted'); } catch (e) {}
+        cookieBanner.hidden = true;
+      });
+    }
+    if (cookieDecline) {
+      cookieDecline.addEventListener('click', function () {
+        try { localStorage.setItem('cookie-consent', 'declined'); } catch (e) {}
+        cookieBanner.hidden = true;
+      });
+    }
+  }
+
+  // ── Contact form validation (#4 fix: null check) ──
   var form = document.getElementById('contactForm');
   var formSuccess = document.getElementById('formSuccess');
 
@@ -209,45 +307,113 @@
   }
 
   function clearError(input) {
+    if (!input) return;
     var error = input.parentElement.querySelector('.form-error');
     input.classList.remove('invalid');
     if (error) error.textContent = '';
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var valid = true;
-    var name = form.querySelector('#name');
-    var email = form.querySelector('#email');
-    var message = form.querySelector('#message');
+  var isAr = document.documentElement.lang === 'ar';
 
-    [name, email, message].forEach(clearError);
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+      var name = form.querySelector('#name');
+      var email = form.querySelector('#email');
+      var message = form.querySelector('#message');
 
-    if (!name.value.trim()) {
-      showError(name, 'Please enter your name.');
-      valid = false;
-    }
-    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-      showError(email, 'Please enter a valid email.');
-      valid = false;
-    }
-    if (!message.value.trim()) {
-      showError(message, 'Please enter a message.');
-      valid = false;
-    }
+      [name, email, message].forEach(clearError);
 
-    if (valid) {
-      form.classList.add('form-sending');
-      setTimeout(function () {
-        form.style.display = 'none';
-        formSuccess.hidden = false;
-        formSuccess.classList.add('form-success-animate');
-      }, 800);
-    }
+      if (!name.value.trim()) {
+        showError(name, isAr ? 'يرجى إدخال اسمك.' : 'Please enter your name.');
+        valid = false;
+      }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
+        showError(email, isAr ? 'يرجى إدخال بريد إلكتروني صالح.' : 'Please enter a valid email.');
+        valid = false;
+      }
+      if (!message.value.trim()) {
+        showError(message, isAr ? 'يرجى إدخال رسالتك.' : 'Please enter a message.');
+        valid = false;
+      }
+
+      if (valid) {
+        form.classList.add('form-sending');
+        setTimeout(function () {
+          form.classList.add('form-hidden');
+          form.classList.remove('form-sending');
+          if (formSuccess) {
+            formSuccess.hidden = false;
+            formSuccess.classList.add('form-success-animate');
+          }
+        }, 800);
+      }
+    });
+
+    form.querySelectorAll('input, textarea').forEach(function (input) {
+      input.addEventListener('input', function () { clearError(this); });
+    });
+  }
+
+  // ── Legal Modals (#5 fix: accessibility + focus trap) ──
+  var lastFocusedEl = null;
+
+  function openModal(modal) {
+    lastFocusedEl = document.activeElement;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button
+    var closeBtn = modal.querySelector('.legal-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedEl) lastFocusedEl.focus();
+  }
+
+  document.querySelectorAll('[data-modal]').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var modal = document.getElementById(this.getAttribute('data-modal'));
+      if (modal) openModal(modal);
+    });
   });
 
-  form.querySelectorAll('input, textarea').forEach(function (input) {
-    input.addEventListener('input', function () { clearError(this); });
+  document.querySelectorAll('.legal-modal-overlay').forEach(function (overlay) {
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.closest('.legal-modal-close')) {
+        closeModal(overlay);
+      }
+    });
+
+    // Focus trap
+    overlay.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var focusable = overlay.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.legal-modal-overlay.active').forEach(function (m) {
+        closeModal(m);
+      });
+    }
   });
 
 })();

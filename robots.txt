@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://awdiya.com/sitemap.xml
