@@ -360,10 +360,12 @@
               formSuccess.classList.add('form-success-animate');
             }
           } else {
+            res.text().then(function (t) { console.error('Formspark error:', res.status, t); });
             alert(isAr ? 'حدث خطأ، يرجى المحاولة لاحقاً.' : 'Something went wrong. Please try again.');
           }
-        }).catch(function () {
+        }).catch(function (err) {
           form.classList.remove('form-sending');
+          console.error('Fetch error:', err);
           alert(isAr ? 'حدث خطأ، يرجى المحاولة لاحقاً.' : 'Something went wrong. Please try again.');
         });
       }
