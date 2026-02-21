@@ -356,7 +356,8 @@
           if (res.ok) {
             form.classList.add('form-hidden');
             if (formSuccess) {
-              formSuccess.hidden = false;
+              formSuccess.removeAttribute('hidden');
+              formSuccess.style.display = 'block';
               formSuccess.classList.add('form-success-animate');
             }
           } else {
