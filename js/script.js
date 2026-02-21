@@ -344,6 +344,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
+            _redirect: false,
             name: name.value.trim(),
             email: email.value.trim(),
             message: message.value.trim()
