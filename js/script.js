@@ -340,14 +340,29 @@
 
       if (valid) {
         form.classList.add('form-sending');
-        setTimeout(function () {
-          form.classList.add('form-hidden');
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: name.value.trim(),
+            email: email.value.trim(),
+            message: message.value.trim()
+          })
+        }).then(function (res) {
           form.classList.remove('form-sending');
-          if (formSuccess) {
-            formSuccess.hidden = false;
-            formSuccess.classList.add('form-success-animate');
+          if (res.ok) {
+            form.classList.add('form-hidden');
+            if (formSuccess) {
+              formSuccess.hidden = false;
+              formSuccess.classList.add('form-success-animate');
+            }
+          } else {
+            alert(isAr ? 'حدث خطأ، يرجى المحاولة لاحقاً.' : 'Something went wrong. Please try again.');
           }
-        }, 800);
+        }).catch(function () {
+          form.classList.remove('form-sending');
+          alert(isAr ? 'حدث خطأ، يرجى المحاولة لاحقاً.' : 'Something went wrong. Please try again.');
+        });
       }
     });
 

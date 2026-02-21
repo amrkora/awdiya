@@ -954,6 +954,28 @@ ul {
   margin: 0 auto;
 }
 
+.contact-grid--centered {
+  grid-template-columns: 1fr;
+  max-width: 560px;
+  text-align: center;
+}
+
+.contact-email {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-top: 8px;
+}
+
+.contact-email a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-email a:hover {
+  text-decoration: underline;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
