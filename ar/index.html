@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <link rel="alternate" hreflang="en" href="https://awdiya.com/">
   <link rel="alternate" hreflang="ar" href="https://awdiya.com/ar/">
   <link rel="alternate" hreflang="x-default" href="https://awdiya.com/">
@@ -408,8 +409,9 @@
           <p class="section-desc">استخدم النموذج أدناه لإخبارنا عن مشروعك. سنعود إليك قريباً.</p>
         </div>
         <div class="contact-grid contact-grid--centered">
-          <form class="contact-form" id="contactForm" action="https://api.formspark.io/f/qiC9xtqHT" method="POST" novalidate>
+          <form class="contact-form" id="contactForm" action="https://submit-form.com/qiC9xtqHT" method="POST" novalidate>
             <input type="hidden" name="_redirect" value="false">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="name">الاسم الكامل</label>
               <input type="text" id="name" name="name" placeholder="اسمك" required>
@@ -425,6 +427,7 @@
               <textarea id="message" name="message" rows="5" placeholder="أخبرنا عن مشروعك..." required></textarea>
               <span class="form-error" aria-live="polite"></span>
             </div>
+            <div class="cf-turnstile" data-sitekey="form_v1_e5WiXFEj3tlMncEkN9rO76YF" data-theme="auto"></div>
             <button type="submit" class="btn btn-primary btn-lg btn-full">
               <span>إرسال الرسالة</span>
               <i class="fas fa-paper-plane"></i>

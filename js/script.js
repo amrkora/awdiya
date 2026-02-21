@@ -345,9 +345,11 @@
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             _redirect: false,
+            _gotcha: '',
             name: name.value.trim(),
             email: email.value.trim(),
-            message: message.value.trim()
+            message: message.value.trim(),
+            'cf-turnstile-response': form.querySelector('[name="cf-turnstile-response"]') ? form.querySelector('[name="cf-turnstile-response"]').value : ''
           })
         }).then(function (res) {
           form.classList.remove('form-sending');
